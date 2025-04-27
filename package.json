@@ -1,6 +1,6 @@
 {
   "name": "hws2",
-  "homepage": "http://IgnatZakalinsky.github.io/hws2",
+  "homepage": "https://Katsiaryna26.github.io/HomeTask-1",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -34,7 +34,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "homepage": "https://Katsiaryna26.github.io/HomeTask-1",
+
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
