@@ -4,10 +4,10 @@ import {UserType} from './HW3'
 
 type GreetingContainerPropsType = {
     users: UserType[] // need to fix any
-    addUserCallback: (name: string, setName:React.Dispatch<React.SetStateAction<string>>) => void // need to fix any
+    addUserCallback: (name: string, setName:(newName:string)=>void)=>void // need to fix any
 }
 
-export const pureAddUser = (name: string, setError: React.Dispatch<React.SetStateAction<string>>, setName: React.Dispatch<React.SetStateAction<string>>, addUserCallback: (name: string, setName:React.Dispatch<React.SetStateAction<string>>) => void) => {
+export const pureAddUser = (name: string, setError:(error:string)=>void, setName: (newName:string)=>void, addUserCallback: (name: string, setName:(newName:string)=>void) => void) => {
     if (name.trim() === '') {
         setError('Ошибка! Введите имя!')
     } else {
@@ -19,7 +19,7 @@ export const pureAddUser = (name: string, setError: React.Dispatch<React.SetStat
     // если имя пустое - показать ошибку, иначе - добавить юзера и очистить инпут
 }
 
-export const pureOnBlur = (name: string, setError: React.Dispatch<React.SetStateAction<string>>) => { // если имя пустое - показать ошибку
+export const pureOnBlur = (name: string, setError: (error:string)=>void) => { // если имя пустое - показать ошибку
     if (name.trim() === '') {
         setError('Ошибка! Введите имя!')
     }}
