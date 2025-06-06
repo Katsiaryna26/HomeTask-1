@@ -1,16 +1,39 @@
 .radio {
+    position: relative;
+    display: inline-block;
+    align-items: center;
+    cursor: pointer; /* Указатель при наведении */
+    margin: 0 11px;
+    width: 20px;
+    height: 20px;
+}
+.radio input {
+    display: none; /* Скрыть стандартные радиокнопки */
 }
 
-.radio::before {
-
+.radio::before {content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px; /* Размер внутренней метки */
+    height: 10px; /* Размер внутренней метки */
+    background: white; /* Цвет внутренней метки */
+    border-radius: 50%; /* Круглая форма */
+    border-color: black;
+    transform: translate(-50%, -50%); /* Центрирование */
 }
-
 
 .radio:checked::before {
+    background: black; /* Цвет фона при выбранной кнопке */
+    border-color: black; /* Цвет границы при выбранной кнопке */
 }
 
 .label {
-}
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    }
 
 .options {
     display: flex;
