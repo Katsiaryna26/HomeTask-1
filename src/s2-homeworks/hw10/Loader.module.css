@@ -1,3 +1,12 @@
 .loader {
+    width: 100px; /* ширина вашего лоадера */
+    height: 100px; /* высота вашего лоадера */
+    background-image: url('./Loading.svg'); /* путь к вашему SVG */
+    background-size: cover; /* чтобы изображение не искажалось */
+    animation: spin 1.5s linear infinite; /* добавьте вращение, если необходимо */
     /*свг и/или анимация*/
+}
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
