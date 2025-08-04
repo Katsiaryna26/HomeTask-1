@@ -51,12 +51,14 @@ const HW15 = () => {
         setLoading(true)
         getTechs(params)
             .then((res) => {
-                if (res) {
-                    console.log(res)
-                    setTechs(res.data.techs)
-                    setTotalCount(res.data.totalCount);
+                if (res?.data) {
+                    setTechs(res?.data.techs)
+                    setTotalCount(res?.data.totalCount);
                 }
-                setLoading(false);
+                // if (res) {
+                //     setTechs(res.data.techs)
+                //     setTotalCount(res.data.totalCount);
+                // }
             })
             .finally(()=>{
             setLoading(false);
@@ -76,7 +78,9 @@ const HW15 = () => {
         // делает студен
         setPage(newPage)
         setCount(newCount)
-        sendQuery({ page: newPage, count: newCount})
+        // sendQuery({ page: newPage, count: newCount})
+        // setSearchParams({ page: newPage.toString(), count: newCount.toString() })
+        sendQuery({sort, page: newPage, count: newCount})
         setSearchParams({ page: newPage.toString(), count: newCount.toString() })
 
         //
@@ -87,16 +91,17 @@ const HW15 = () => {
 
         setSort(newSort)
         setPage(1) // при сортировке сбрасывать на 1 страницу
-
-        sendQuery({ sort: newSort, page: 1, count  });
-        setSearchParams({ page: '1', count: count.toString(), sort: newSort })
+        // sendQuery({ sort: newSort, page: 1, count  });
+        // setSearchParams({ page: '1', count: count.toString(), sort: newSort })
+        sendQuery({ sort: newSort, page, count  });
+        setSearchParams({ page: page.toString(), count: count.toString() })
 
         //
     }
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
-        sendQuery({page: params.page, count: params.count, sort})
+        sendQuery({page: params.page, count: params.count})
         setPage(+params.page || 1)
         setCount(+params.count || 4)
 
